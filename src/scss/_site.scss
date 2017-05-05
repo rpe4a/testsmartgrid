@@ -7,7 +7,6 @@ img {
 
 .items {
     @include row-flex;
-    
     .item {
         @include row-flex;
         @include col;
