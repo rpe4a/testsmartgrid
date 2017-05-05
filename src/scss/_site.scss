@@ -1,8 +1,36 @@
 @import "/_normalize.scss";
-@import "/_smart-grid.scss";
+@import "/mixins/_smart-grid.scss";
+@import "./mixins/_margins.scss";
+@import "./mixins/_padding.scss";
+@import "./mixins/_others.scss";
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+
+    @include respond-to($break_lg) {
+        font-size: 1.7rem;
+    }
+    @include respond-to($break_md) {
+        font-size: 1.8rem;
+    }
+    @include respond-to($break_sm) {
+        font-size: 1.9rem;
+    }
+    @include respond-to($break_xs) {
+        font-size: 2.0rem;
+    }
+}
+
 img {
     max-width: 100%;
     height: auto;
+}
+
+.conteiner{
+    @include wrapper;
 }
 
 .items {
@@ -13,14 +41,12 @@ img {
         @include col-4;
         @include col-md-6;
         @include col-xs-12;
-        padding: 10px 0 ; 
-
-        .item-img{
+        padding: 10px 0;
+        .item-img {
             @include col;
             @include col-12;
         }
-
-        .item-body{
+        .item-body {
             @include col;
             @include col-12;
         }

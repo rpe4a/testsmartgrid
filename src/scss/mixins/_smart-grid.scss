@@ -1,5 +1,5 @@
 $columns: 12;
-$offset: 30px;
+$offset: 3rem;
 $offset_one_side: ($offset / 2);
 $atom: (100% / $columns);
 
@@ -58,28 +58,28 @@ $break_xs: 560px;
 
 @mixin wrapper(){
     max-width: 1200px;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 3rem;
+    padding-right: 3rem;
     margin: 0 auto;
 
     @media screen and (max-width: $break_lg){
-        padding-left: 30px;
-        padding-right: 30px;
+        padding-left: 3rem;
+        padding-right: 3rem;
     }
 
     @media screen and (max-width: $break_md){
-        padding-left: 15px;
-        padding-right: 15px;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
     }
 
     @media screen and (max-width: $break_sm){
-        padding-left: 15px;
-        padding-right: 15px;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
     }
 
     @media screen and (max-width: $break_xs){
-        padding-left: 15px;
-        padding-right: 15px;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
     }
 }
 @mixin row-flex(){
