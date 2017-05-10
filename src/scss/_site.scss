@@ -3,13 +3,13 @@
 @import "./mixins/_margins.scss";
 @import "./mixins/_padding.scss";
 @import "./mixins/_others.scss";
+@include reset;
 html {
     font-size: 62.5%;
 }
 
 body {
     font-size: 1.6rem;
-
     @include respond-to($break_lg) {
         font-size: 1.7rem;
     }
@@ -29,7 +29,7 @@ img {
     height: auto;
 }
 
-.conteiner{
+.conteiner {
     @include wrapper;
 }
 
@@ -38,6 +38,7 @@ img {
     .item {
         @include row-flex;
         @include col;
+        @include justify-content(center);
         @include col-4;
         @include col-md-6;
         @include col-xs-12;
@@ -57,4 +58,80 @@ img {
     content: "";
     display: table;
     clear: both;
+}
+
+
+/*Адаптивное меню*/
+
+%menu-el-prop {
+    color: purple;
+    font-weight: bold;
+}
+
+.menu-wrapper {
+    background-color: #eee;
+    position: relative;
+    .menu-toggle {
+        @extend %menu-el-prop;
+        padding: 10px 15px;
+        cursor: pointer;
+        display: none;
+        @include respond-to($break_xs) {
+            display: block;
+        }
+    }
+    .menu {
+        @include respond-to($break_xs) {
+            display: none;
+            position: absolute;
+            top: 100%;
+            background-color: #eee;
+            width: 100%;
+            z-index: 1;
+        }
+        li {
+            float: left;
+            @include respond-to($break_xs) {
+                float: none;
+                border-top: 1px solid #d9d9d9;
+            }
+            a {
+                display: inline-block;
+                padding: 10px 15px;
+                text-decoration: none;
+                border-left: 3px solid transparent;
+                @extend %menu-el-prop;
+                @include respond-to($break_xs) {
+                    &:hover {
+                        border-left: 3px solid purple;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/*Адаптивный фрейм*/
+
+iframe {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+}
+
+.relation {
+    position: relative;
+    .relation__padding_16x9 {
+        padding-top: 56.25%; //9:16 * 100 
+    }
+}
+
+.pp {
+    @include col;
+}
+
+.pp1 {
+    @include row-flex;
 }

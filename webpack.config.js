@@ -1,5 +1,5 @@
-var path = require('path');
-
+const path = require('path');
+const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const extractSass = new ExtractTextPlugin({
@@ -8,26 +8,40 @@ const extractSass = new ExtractTextPlugin({
 });
 
 module.exports = {
-  entry: './src/js/index.js',
-  output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist')
-  },
-  module: {
+    entry: './src/js/index.js',
+    output: {
+        filename: 'bundle.js',
+        path: path.resolve(__dirname, 'dist')
+    },
+    module: {
         rules: [{
             test: /\.scss$/,
+            exclude: /(node_modules)/,
             use: extractSass.extract({
                 use: [{
-                    loader: "css-loader"
+                    loader: "css-loader?url=false"
                 }, {
                     loader: "sass-loader"
                 }],
                 // use style-loader in development
                 fallback: "style-loader"
             })
+        }, {
+            test: /\.js$/,
+            exclude: /(node_modules)/,
+            use: {
+                loader: 'babel-loader',
+                options: {
+                    presets: ['env'],
+                }
+            }
         }]
     },
     plugins: [
-        extractSass
+        extractSass,
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery'
+        })
     ]
 };
