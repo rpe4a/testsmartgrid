@@ -36,7 +36,6 @@ img {
 .items {
     @include row-flex;
     .item {
-        @include row-flex;
         @include col;
         @include justify-content(center);
         @include col-4;
@@ -44,12 +43,12 @@ img {
         @include col-xs-12;
         padding: 10px 0;
         .item-img {
-            @include col;
-            @include col-12;
+            /*@include col;
+            @include col-12;*/
         }
         .item-body {
-            @include col;
-            @include col-12;
+            /*@include col;
+            @include col-12;*/
         }
     }
 }
@@ -128,10 +127,29 @@ iframe {
     }
 }
 
-.pp {
-    @include col;
+/*Своя адаптивная сетка*/
+
+.row{
+    border: 1px solid red;
+    display: flex;
+    justify-content: space-between;
 }
 
-.pp1 {
-    @include row-flex;
+.col{
+    text-align: center;
+    flex-basis: 300px;
+
+    img{
+        max-width: 100%;
+        display: inline-block; 
+    }
+
+}
+
+
+.col-style{
+    border: 1px solid yellow;
+    background-color: gray;
+    min-height: 400px;
+    text-align: center;
 }

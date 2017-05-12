@@ -19,10 +19,29 @@ module.exports = {
             exclude: /(node_modules)/,
             use: extractSass.extract({
                 use: [{
-                    loader: "css-loader?url=false"
-                }, {
-                    loader: "sass-loader"
-                }],
+                        loader: "css-loader?url=false"
+                    }
+                    /*, {
+                                        loader: "group-css-media-queries-loader"
+                                    }*/
+                    ,
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: function () {
+                                return [
+                                    require('autoprefixer')({
+                                        browsers: ['last 2 versions'],
+                                        cascade: false,
+                                    })
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        loader: "sass-loader"
+                    }
+                ],
                 // use style-loader in development
                 fallback: "style-loader"
             })
