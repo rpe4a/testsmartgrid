@@ -127,29 +127,55 @@ iframe {
     }
 }
 
+
 /*Своя адаптивная сетка*/
 
-.row{
-    border: 1px solid red;
+.flex-conteiner{
     display: flex;
-    justify-content: space-between;
-}
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;//выравнивание по главной оси
+    align-items: stretch; //выравнивание по поперечной оси
+    align-content: space-around;
 
-.col{
-    text-align: center;
-    flex-basis: 300px;
+    .flex-item{
+        max-width: 150px;
+        background: #d9d9d9;
+        flex-grow: 1; //или flex: 1;
+        //flex: 1 1 auto //тоже самое что flex-grow, flex-shrink, flex-basis;
+        /*margin: 0 auto;*/
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
 
-    img{
-        max-width: 100%;
-        display: inline-block; 
+        &:first-child{
+            /*align-self: flex-start*/
+        }
+
+        &:last-child{
+           /* align-self: flex-end*/
+        }
+
+        .text{
+            /*margin: 0 0 auto 0;*/
+        }
+
+        .but{
+            text-align: center;
+            margin: auto 0 0 0;
+        }
     }
 
+    /*У всех флекс итемов по умолчанию задан order=0*/
+    .flex-order-1{
+        /*order: 1;*/
+        /*@include order(1)*/
+    }
+
+    .flex-order-6{
+        /*order: -1;*/
+       /* @include order(-1)*/
+        
+    }
 }
 
-
-.col-style{
-    border: 1px solid yellow;
-    background-color: gray;
-    min-height: 400px;
-    text-align: center;
-}

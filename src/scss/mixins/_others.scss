@@ -144,3 +144,17 @@
 		}
 	}
 }
+
+@for $size from 1 through 12{
+	.col-order-#{$size}{
+		order: $size;
+	}
+
+	.col-order-reverse-#{$size}{
+		order: -$size;
+	}
+}
+
+@mixin col-order($value){
+	order: $value;
+}
