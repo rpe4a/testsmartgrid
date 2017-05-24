@@ -39,7 +39,8 @@ module.exports = {
                         }
                     },
                     {
-                        loader: "sass-loader"
+                        loader: "sass-loader",
+                        
                     }
                 ],
                 // use style-loader in development
