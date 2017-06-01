@@ -121,26 +121,26 @@
 
 @for $size from 1 through 12 {
 	.col-#{$size} {
-		width: calc(#{$size} * 8.333333333333334% - 30px);
+		width: #{calc(#{$size} * 8.333333333333334% - 30px)};
 	}
 	@include respond-to($break_lg) {
 		.col-lg-#{$size} {
-			width: calc(#{$size} * 8.333333333333334% - 30px);
+			width: #{calc(#{$size} * 8.333333333333334% - 30px)};
 		}
 	}
 	@include respond-to($break_md) {
 		.col-md-#{$size} {
-			width: calc(#{$size} * 8.333333333333334% - 30px);
+			width: #{calc(#{$size} * 8.333333333333334% - 30px)};
 		}
 	}
 	@include respond-to($break_sm) {
 		.col-sm-#{$size} {
-			width: calc(#{$size} * 8.333333333333334% - 30px);
+			width: #{calc(#{$size} * 8.333333333333334% - 30px)};
 		}
 	}
 	@include respond-to($break_xs) {
 		.col-xs-#{$size} {
-			width: calc(#{$size} * 8.333333333333334% - 30px);
+			width: #{calc(#{$size} * 8.333333333333334% - 30px)};
 		}
 	}
 }
